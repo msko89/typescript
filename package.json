@@ -1,0 +1,24 @@
+{
+  "name": "typescript_study",
+  "version": "1.0.0",
+  "description": "- TypeScript는 타입을 추가하여 JavaScript를 확장\r - TypeScript는 Compiled Language",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "build:watch": "tsc -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/msko89/typescript.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/msko89/typescript/issues"
+  },
+  "homepage": "https://github.com/msko89/typescript#readme",
+  "dependencies": {
+    "typescript": "^4.2.4"
+  }
+}

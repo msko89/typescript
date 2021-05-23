@@ -44,6 +44,19 @@
      - 파일이 수정될 때마다 컴파일 실행
 
 4. 해당 프로젝트에만 TypeScript 적용
+
    - npm uninstall typescript -g
    - npm init -y
    - npm i typescript
+   - TypeSCript 실행
+
+     1. node_modules/.bin/tsc
+     1. node_modules/typescript/bin/tsc
+     1. npx tsc(npx tsc -w)
+     1. package.json scripts에 등록
+        - build: "tsc"
+        - buld:watch: "tsc -w"
+        - npm run build
+
+   - tsconfig.json 파일 생성
+     - npx tsc --init
