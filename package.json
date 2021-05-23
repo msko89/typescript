@@ -18,7 +18,7 @@
     "url": "https://github.com/msko89/typescript/issues"
   },
   "homepage": "https://github.com/msko89/typescript#readme",
-  "dependencies": {
+  "devDependencies": {
     "typescript": "^4.2.4"
   }
 }

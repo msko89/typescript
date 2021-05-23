@@ -30,7 +30,7 @@
      - node_modules/.bin/tsc
      - tsc source.ts
 
-2. TypeSCript Compiler 실행 명령어
+2. TypeScript Compiler 실행 명령어
 
    - tsc + 파일명 ( 예: tsc test.ts )
    - test.ts -> test.js 파일 생성
@@ -47,7 +47,7 @@
 
    - npm uninstall typescript -g
    - npm init -y
-   - npm i typescript
+   - npm i typescript -D
    - TypeSCript 실행
 
      1. node_modules/.bin/tsc
@@ -60,3 +60,34 @@
 
    - tsconfig.json 파일 생성
      - npx tsc --init
+
+5. TypeScript Compiler 변경
+   - 기본적으로 vscode 내에 내장되어 있음
+   - npm으로 TypeScript 설치 후 설치한 TypeScript 버전을 사용하려면
+     1. ts파일에서 하단에 버전 클릭
+     1. TypeScript 버전 선택
+     1. 작업 영역 버전 사용
+
+<br/>
+<br/>
+
+## First Type Annotation
+
+---
+
+```js
+let a = 'msko';
+a = 89; //error
+
+let b: string;
+b = 'msko';
+b = 89; //error
+
+let c: number;
+c = 'msko'; //error
+c = 89;
+
+function setNumber(d: number) {}
+setNumber('msko'); //error
+setNumber(89);
+```
