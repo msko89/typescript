@@ -249,3 +249,77 @@ c.indexOf('0');
     - 잘못된 타입을 넣는 실수를 막고자 할 때 사용
 
 <br/>
+<br/>
+<br/>
+
+## TypeScript 타입 시스템
+
+    - 타입을 명시적으로 지정 가능
+    - 타입을 명시적으로 지정하지 않을 경우 TypeScript Compiler가 자동으로 타입 추론
+
+- noImplicitAny: true
+
+  - 타입을 명시적으로 지정하지 않은 경우, TypeScript가 추론 중 'any'라고 판단하게 되면 컴파일 에러를 발생시켜 명시적으로 지정하도록 유도
+
+- strictNullChecks: true
+
+  - 모든 타입에 자동으로 포함되어 있는 null, undefined를 제거
+
+- noImplicitReturns: true
+
+  - 함수 내에서 모든 코드가 값을 리턴하지 않으면 컴파일 에러 발생
+
+- 나만의 타입을 만드는 방법
+  1. interface
+  1. type alias
+  1. class
+
+---
+
+    - Structural Type System: 구조가 같으면 같은 타입이다.  => TypeScript
+    - Nominal Type System: 구조가 같아도 이름이 다르면 다른 타입이다.
+
+<br/>
+
+## 타입 호환성(Type Compatibility)
+
+---
+
+    - 같거나 서브 타입인 경우 할당이 가능하다.(공변)
+      - object: 각각의 프로퍼티가 대응하는 프로퍼티와 같거나 서브타입이어야 한다.
+      - Array: object와 동일
+    - 함수의 매개변수 타입만 같거나 슈퍼타입인 경우 할당이 가능하다.(반병)
+      - strictFunctionTypes: true
+        : 함수를 할당할 시에 함수의 매개변수 타입이 같거나 슈퍼타입이 아닌 경우 에러를 통해 경고 표시
+
+<br/>
+
+## 타입 별칭(Type Alias)
+
+---
+
+    - 기타 직접 작성해야하는 타입을 다른 이름으로 지정할 수 있음
+    - 만들어진 타입의 refer로 사용하는 것이지 타입을 만드는 것은 아님
+
+- Aliasing Primitive
+- Aliasing Union Type
+
+```js
+let person: string | number = 0;
+person = 'msko';
+
+type StringOrNumber = string | number;
+
+let another: StringOrNumber = 0;
+another = 'test';
+```
+
+- Aliasing Tuple
+
+```js
+let person: [string, number] = ['msko', 33];
+type PersonTuple = [string, number];
+let another: PersonTuple = ['test', 11];
+```
+
+- Aliasing Function
