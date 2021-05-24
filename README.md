@@ -323,3 +323,66 @@ let another: PersonTuple = ['test', 11];
 ```
 
 - Aliasing Function
+
+<br/>
+<br/>
+
+## TypeScript Compiler
+
+---
+
+- https://basarat.gitbook.io/typescript/
+
+<br/>
+
+### Compilation Context
+
+- 어떤 파일들을 어떤 방식으로 컴파일 할 것인지
+- tsconfig.json에서 정의
+- http://json.schemastore.org/tsconfig
+
+### tsconfig.json
+
+#### \* 최상위 Properties
+
+- compileOnSave
+  - compileOnSave: true, //저장 시, 컴파일 여부(true/false)(default:false)
+
+```json
+//schema
+compileOnSaveDefinition: {
+  properties: {
+    compileOnSave: {
+      description: "Enable Compile-on-Save for this project.",
+      type: "boolean"
+    }
+  }
+}
+```
+
+- extends
+  - 상속할 때 사용
+  - extends: "./base.json", //상대경로로 지정
+  - github tsconfig/bases 참고
+  - ex) npm install --save-dev @tsconfig/deno
+    - extends에 설정됨
+
+```json
+base.json
+{
+  "compilerOptions" : {
+    "strict": true
+  }
+}
+```
+
+```json
+extendsDefinition: {
+  properties: {
+    extends: {
+      description: "Path to base configuration file to inherit from. Requires TypeScript version 2.1 or later.",
+      type: "string"
+    }
+  }
+}
+```
