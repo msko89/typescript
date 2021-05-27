@@ -1,4 +1,4 @@
 "use strict";
-let isDone = false;
+var isDone = false;
 isDone = true;
 console.log(typeof isDone); // 'boolean'

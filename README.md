@@ -257,13 +257,14 @@ c.indexOf('0');
     - 타입을 명시적으로 지정 가능
     - 타입을 명시적으로 지정하지 않을 경우 TypeScript Compiler가 자동으로 타입 추론
 
-- noImplicitAny: true
+- noImplictAny: true
 
   - 타입을 명시적으로 지정하지 않은 경우, TypeScript가 추론 중 'any'라고 판단하게 되면 컴파일 에러를 발생시켜 명시적으로 지정하도록 유도
 
 - strictNullChecks: true
 
   - 모든 타입에 자동으로 포함되어 있는 null, undefined를 제거
+  - 예외) undefined에 void 할당 가능
 
 - noImplicitReturns: true
 
@@ -532,4 +533,60 @@ rootDir: {
   type: "string",
   markdownDescription: "Specify the root folder within your source files. See more: https://www.typescriptlang.org/tsconfig#rootDir"
 },
+```
+
+- strict
+  - strict는 true를 기본으로 설정할 것
+
+```json
+strict: {
+  description: "Enable all strict type checking options.",
+  type: "boolean",
+  default: false,
+  markdownDescription: "Enable all strict type checking options. See more: https://www.typescriptlang.org/tsconfig#strict"
+},
+```
+
+<br/>
+<br/>
+
+## Interfaces
+
+---
+
+- 컴파일에서만 필요
+- 실제로 컴파일 됐을 때는 사라짐
+
+### **`optional property`**
+
+- ? : property name이 지정
+- indexable type : 어떠한 property name이 와도 상관없음
+
+```js
+interface Person2 {
+  name: string;
+  age?: number;
+}
+
+interface Person3 {
+  name: string;
+  age?: number;
+  [index: string]: any;
+}
+
+const p31: Person3 = {
+  name: 'msko',
+  age: 33,
+};
+
+const p32: Person3 = {
+  name: 'komong',
+  sisters: ['Sung', 'Chan'],
+};
+
+const p33: Person3 = {
+  name: 'tester',
+  father: p31,
+  mother: p32,
+};
 ```

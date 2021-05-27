@@ -1,2 +1,2 @@
 "use strict";
-const hello = () => { };
+var hello = function () { };

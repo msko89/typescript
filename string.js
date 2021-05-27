@@ -1,7 +1,5 @@
 "use strict";
-let myName = 'msko';
-let age = 33;
-let introduce = `Hello, my name is ${myName}
-I'm ${age} years old;
-`;
+var myName = 'msko';
+var age = 33;
+var introduce = "Hello, my name is " + myName + "\nI'm " + age + " years old;\n";
 console.log(introduce);
