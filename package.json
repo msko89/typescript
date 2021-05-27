@@ -19,6 +19,10 @@
   },
   "homepage": "https://github.com/msko89/typescript#readme",
   "devDependencies": {
+    "@types/react": "^17.0.8",
     "typescript": "^4.2.4"
+  },
+  "dependencies": {
+    "react": "^17.0.2"
   }
 }
