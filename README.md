@@ -386,3 +386,55 @@ extendsDefinition: {
   }
 }
 ```
+
+- files, include, exclude
+
+  - 셋 다 설정이 없으면 모든 파일 컴파일
+  - files > exclude  
+    files에 선언이 되어 있는 파일은 exclude에 선언 되어 있어도 컴파일에 포함
+  - include, exclude
+    - include
+      - \* 같은걸 사용하면, .ts / .tsx / .d.ts만 include
+      - exclude와 같이 사용되면 exclude가 우선순위
+    - exclude
+      - `설정 안하면 4가지(node_modules, bower_components, jspm_packges, \<outDir>)를 default로 제외`
+      - \<outDir>은 항상 제외(include에 있어도)
+
+```json
+filesDefinition: {
+  properties: {
+    files: {
+      description: "If no 'files' or 'include' property is present in a tsconfig.   json, the compiler defaults to including all files in the containing directory and subdirectories except those specified by 'exclude'. When a 'files' property is specified, only those files and those specified by 'include' are included.",
+      type: "array",
+      uniqueItems: true,
+      items: {
+        type: "string"
+      }
+  }
+  }
+},
+excludeDefinition: {
+  properties: {
+    exclude: {
+      description: "Specifies a list of files to be excluded from compilation. The 'exclude' property only affects the files included via the 'include' property and not the 'files' property. Glob patterns require TypeScript version 2.0 or later.",
+      type: "array",
+      uniqueItems: true,
+      items: {
+        type: "string"
+      }
+    }
+  }
+},
+includeDefinition: {
+  properties: {
+    include: {
+      description: "Specifies a list of glob patterns that match files to be included in compilation. If no 'files' or 'include' property is present in a tsconfig.json, the compiler defaults to including all files in the containing directory and subdirectories except those specified by 'exclude'. Requires TypeScript version 2.0 or later.",
+      type: "array",
+      uniqueItems: true,
+      items: {
+        type: "string"
+      }
+    }
+  }
+}
+```
