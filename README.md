@@ -438,3 +438,44 @@ includeDefinition: {
   }
 }
 ```
+
+### compileOptions
+
+---
+
+- typeRoots, types
+
+  - 예시 ) React 모듈 설치
+
+    - npm i react 설치 시, Could not find a declaration file for module 'react' 오류 발생
+    - npm i -D @types/react 설치
+    - node_modules > @types > react 설치됨
+
+  - typeRoots를 사용하면 ?
+    - 배열 안에 들어있는 경로들 아래서만 가져온다.
+  - types를 사용하면?
+    - 배열안의 모듈 혹은 ./node_modules/@types 안의 모듈 이름에서 찾아온다.
+    - [] 빈 배열은 이 시스템을 이용하지 않겠다는 의미
+  - typeRoots와 types를 같이 사용하지 않는다.
+
+```json
+typeRoots: {
+  description: "Specify multiple folders that act like `./node_modules/@types`.",
+  type: "array",
+  uniqueItems: true,
+  items: {
+    type: "string"
+  },
+  markdownDescription: "Specify multiple folders that act like `./node_modules/@types`. See more: https://www.typescriptlang.org/tsconfig#typeRoots"
+},
+
+types: {
+  description: "Specify type package names to be included without being referenced in a source file.",
+  type: "array",
+  uniqueItems: true,
+  items: {
+    type: "string"
+  },
+  markdownDescription: "Specify type package names to be included without being referenced in a source file. See more: https://www.typescriptlang.org/tsconfig#types"
+},
+```
