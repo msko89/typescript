@@ -481,7 +481,21 @@ types: {
 ```
 
 - target, lib
+
   - 가장 기본이 되고 중요한 정보
+  - target은 js로 컴파일 시 target에 지정된 버전을 기준으로 컴파일 됨
+  - target에 따라 기본으로 지정되는 lib가 있음
+
+  - target
+    - 빌드의 결과물을 어떤 버전으로 할 것인가(default: es3)
+  - lib
+    - 기본 type definition 라이브러리를 어떤 것으로 사용할 것인가
+    - lib를 지정하지 않은 경우
+      - target:'es3' -> lib는 디폴트로 lib.d.ts 사용
+      - target:'es5' -> lib는 디폴트로 dom, es5, scripthost 사용
+      - target:'es6' -> lib는 디폴트로 dom, es6, dom.iterable, scripthost 사용
+    - lib를 지정하면 그 lib 배열로만 라이브러리 사용
+      - 빈 [] => no definition found
 
 ```json
 target: {
@@ -497,5 +511,25 @@ target: {
   }
   ],
   markdownDescription: "Set the JavaScript language version for emitted JavaScript and include compatible library declarations. See more: https://www.typescriptlang.org/tsconfig#target"
+},
+```
+
+- outDir, outFile, rootDir
+
+```json
+outFile: {
+  description: "Specify a file that bundles all outputs into one JavaScript file. If `declaration` is true, also designates a file that bundles all .d.ts output.",
+  type: "string",
+  markdownDescription: "Specify a file that bundles all outputs into one JavaScript file. If `declaration` is true, also designates a file that bundles all .d.ts output. See more: https://www.typescriptlang.org/tsconfig#outFile"
+},
+outDir: {
+  description: "Specify an output folder for all emitted files.",
+  type: "string",
+  markdownDescription: "Specify an output folder for all emitted files. See more: https://www.typescriptlang.org/tsconfig#outDir"
+},
+rootDir: {
+  description: "Specify the root folder within your source files.",
+  type: "string",
+  markdownDescription: "Specify the root folder within your source files. See more: https://www.typescriptlang.org/tsconfig#rootDir"
 },
 ```
