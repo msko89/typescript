@@ -1,7 +1,7 @@
 "use strict";
-var decimal = 10;
-var hex = 0xf00d;
-var binary = 6;
-var octal = 484;
-var notANumber = NaN;
-var underscoreNum = 1000000;
+let decimal = 10;
+let hex = 0xf00d;
+let binary = 0b0110;
+let octal = 0o744;
+let notANumber = NaN;
+let underscoreNum = 1000000;

@@ -479,3 +479,23 @@ types: {
   markdownDescription: "Specify type package names to be included without being referenced in a source file. See more: https://www.typescriptlang.org/tsconfig#types"
 },
 ```
+
+- target, lib
+  - 가장 기본이 되고 중요한 정보
+
+```json
+target: {
+  description: "Set the JavaScript language version for emitted JavaScript and include compatible library declarations.",
+  type: "string",
+  default: "ES3",
+  anyOf: [
+    {
+      enum: [ "ES3","ES5","ES6","ES2015","ES2016","ES2017","ES2018","ES2019","ES2020","ESNext"]
+    },
+  {
+    pattern: "^([Ee][Ss]([356]|(20(1[56789]|20))|[Nn][Ee][Xx][Tt]))$"
+  }
+  ],
+  markdownDescription: "Set the JavaScript language version for emitted JavaScript and include compatible library declarations. See more: https://www.typescriptlang.org/tsconfig#target"
+},
+```
